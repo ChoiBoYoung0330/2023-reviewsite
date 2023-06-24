@@ -1,0 +1,137 @@
+{% load embed_video_tags %}
+{% load static %}
+<link rel="stylesheet" href="{% static "review_style.css" %}">
+
+<body>
+    <div id="container">
+        {% comment %} <header>
+            <div id="search-box">
+            </div>
+        </header> {% endcomment %}
+
+        <div id="teaser">
+            <div align="center">
+                {% video detail_title.youtube_url as youtube %}
+                <iframe width="100%" height="100%" src="{{ youtube.url }}" frameborder="0" allowfullscreen></iframe>
+                {% endvideo %}
+            </div>
+        </div>
+
+        <div id="content-title">
+            <h1>{{basic_title.title}}<h1>
+        </div>
+
+        <div id="synopsis">
+            <p>{{detail_title.synopsis}}</p>
+        </div>
+
+        <div id="actor">
+            <p>{{detail_title.actor}}</p>
+        </div>
+
+        <div id="chart">
+            <p>평점: {{basic_title.total_score}}</p>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div id="chart-source">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            {% for tf_idf in graph_title.graph_set.all %}
+                                '{{ tf_idf.tf_idf_word }}',
+                            {% endfor %}
+                        ],
+                        datasets: [{
+                            data: [
+                                {% for tf_idf in graph_title.graph_set.all %}
+                                    {{ tf_idf.tf_idf_score }},
+                                {% endfor %}
+                            ],
+                            fill: true,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 99, 132)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: false
+                                },
+                                grid: {
+                                    color:'white',
+                                    borderWidth: 1
+                                },
+                                ticks: {stepSize: 1, color: 'white', backdropColor: 'transparent'},
+                                min:0,
+                                max:5,
+                                pointLabels: {
+                                    color: 'white',
+                                    font: {size:12}
+                                }
+                            },
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                            }]
+                        },
+                        plugins: {
+                            legend: {
+                                display: false,
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+        <div id="go-watch">
+            <a href="{{detail_title.netflix_url}}" target="_blank">바로 보러가기!</a>
+        </div>
+
+        <div id="reviews-good">
+            <h2>좋아요</h2>
+        </div>
+        <div id="reviews-good-detail">
+            {% for review in review_title.review_info_set.all %}
+                {% for tf_idf in graph_title.graph_set.all %}
+                    {% if tf_idf.tf_idf_word in review.review %}
+                        {% if review.review_score >= 3.0 %}
+                            <p>
+                                {{ review.review }} {{ review.review_score }}
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div id="reviews-bad">
+            <h2>아쉬워요</h2>
+        </div>
+        <div id="reviews-bad-detail">
+            {% for review in review_title.review_info_set.all %}
+                {% for tf_idf in graph_title.graph_set.all %}
+                    {% if tf_idf.tf_idf_word in review.review %}
+                        {% if review.review_score < 3.0 %}
+                            <p>
+                                {{ review.review }} {{ review.review_score }}
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</body>

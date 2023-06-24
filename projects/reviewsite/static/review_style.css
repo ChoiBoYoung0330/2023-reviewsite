@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+* {
+  margin:0;   /* 마진 리셋 */
+  padding:0;   /* 패딩 리셋 */
+  box-sizing: border-box;   /* 박스 영역은 테두리까지 */ 
+}
+a {
+    text-decoration: none;
+}
+#container {
+  margin:0 auto;  /* 화면 중앙에 배치 */
+  width:896px;    /* 너비 */
+}
+body {
+    color: white;
+    background: black;
+}
+/*********************************/
+/* 헤더 영역 - 검색바 */
+/*********************************/
+header{
+  width: 100%;    /*  너비 */
+  height: 60px;   /* 높이 */ 
+  /* background: red; */
+}
+#search-box {
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 60px;
+    /* background: green; */
+}
+
+/********************************/
+/*   티저 영역    */
+/********************************/
+#teaser {
+    position: relative;   
+    clear:both;   /* 플로팅 해제 */
+    object-position: center center;
+    width:100%;    /* 너비 */ 
+    height: 504px;   /* 높이 */
+}
+
+/********************************/
+/*   콘텐츠 영역    */
+/********************************/
+#content-title {
+    float: left;
+    width: 100%;
+    height: 70px;
+    line-height: 60px;
+  }
+  #content-title h1{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  #synopsis {
+    float: left;
+    width: 100%;
+    background-color: transparent;
+  }
+  #synopsis p {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+  }
+  #actor {
+    float: left;
+    width: 100%;
+    padding-top: 15px;
+    background-color: transparent;
+  }
+  #actor p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13;
+    font-weight: 700;
+  }
+
+  #chart p {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+  }
+  
+  #chart {
+    clear: both;
+    margin: auto;
+    width: 100%;
+    height: 400px;
+    padding-top: 50px;
+    padding-left: 30%;
+    background-color: transparent;
+  }
+  #go-watch {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #go-watch a {
+    float: right;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  #reviews-good {
+    clear: both;
+    float: left;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+  }
+  #reviews-good h2{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+  }
+  #reviews-good-detail p {
+    font-family: 'Rajdhani', sans-serif;
+    float: left;
+    width: 100%;
+    line-height: 60px;
+    padding-left: 20px;
+    /* background-color: transparent; */
+  }
+  #reviews-bad {
+    float: left;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+  }
+  #reviews-bad h2{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+  }
+  #reviews-bad-detail p {
+    font-family: 'Rajdhani', sans-serif;
+    float: left;
+    width: 100%;
+    line-height: 60px;
+    padding-left: 20px;
+    background-color: transparent;
+  }

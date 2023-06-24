@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "style.css" %}">
+
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <h1>review</h1>
+                {% comment %} <a href="http://127.0.0.1:8000/">
+                    <h1>review</h1>
+                </a> {% endcomment %}
+            </div>
+            <div id="search-box">
+            </div>
+        </header>
+
+        <div id="slideShow">
+            <div id="slides">
+                <img src="media/pybo/극한직업.jpg">
+                <button id="prev">&lang;</button>
+                <button id="next">&rang;</button>
+            </div>
+        </div>
+
+        <div id="contents-title">
+            <h1>contents</h1>
+        </div>
+        <div id="contents">
+            <ul>
+                <div class="card">
+                    {% for info in basic_info_list.all %}
+                    <a href="/pybo/{{info.id}}/">
+                       <img src="{{info.poster_src.url}}" alt="{{info.title}}" width="300px">
+                    </a>
+                    {% endfor %}
+                </div>
+            </ul>
+        </div>
+    </div>
+    <script src="js/slideshow.js"></script>
+</body>
