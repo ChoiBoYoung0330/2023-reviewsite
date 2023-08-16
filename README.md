@@ -79,8 +79,9 @@ style.css는 basic_info_list.html, review_style.css는 title_detail.html에 사�
 1. 단어 정규화 수정 (ex.넷플 24개, 넷플릭스 22개, 플릭스 22개 -> 넷플릭스 36개, 플릭스 1개)
 2. sqlite 대신 mysql 사용하기 위해 코드 수정
    - database의 table과 같은 형태로 csv 저장
+3. sqlite 대신 mysql 연결
+4. csv 파일 mysql에서 불러오기
+
 
 ## 남은 할 일
-1. sqlite 대신 mysql 연결
-2. csv 파일 mysql에서 불러오기
-3. 웹페이지에서 키워드 선택하면 해당 키워드 리뷰만 보이게 수정
+1. 웹페이지에서 키워드 선택하면 해당 키워드 리뷰만 보이게 수정
