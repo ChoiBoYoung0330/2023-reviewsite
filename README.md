@@ -25,7 +25,7 @@ python selenium을 이용해서 사이트 '키노라이츠'에 있는 작품을 
 ## NLP - lemma.py
 konlpy 라이브러리 사용.
 
-stop_words_list에는 title과 배우들의 이름이 저장되고 lemmatized_words에는 stop_words_list에 있는 단어들을 제외한 단어들만이 저장.
+stop_words_list에는 title과 극 중 이름이 저장되고 lemmatized_words에는 stop_words_list에 있는 단어들을 제외한 단어들만이 저장.
 
 ## TF-IDF - tf_idf.ipynb
 tf-idf를 구하고 단어들의 개수와 평균점수를 내림차순으로 정렬하여 상위 20개의 단어만 작품별로 엑셀 시트에 저장.
