@@ -81,7 +81,7 @@ style.css는 basic_info_list.html, review_style.css는 title_detail.html에 사�
    - database의 table과 같은 형태로 csv 저장
 3. sqlite 대신 mysql 연결
 4. csv 파일 mysql에서 불러오기
+5. 웹페이지에서 키워드 선택하면 해당 키워드 리뷰만 보이게 수정
 
+<img width="260" alt="image" src="https://github.com/ChoiBoYoung0330/2023-reviewsite/assets/65601017/2e2ca871-8b02-4b30-b06d-4d3489e10b2f">
 
-## 남은 할 일
-1. 웹페이지에서 키워드 선택하면 해당 키워드 리뷰만 보이게 수정
